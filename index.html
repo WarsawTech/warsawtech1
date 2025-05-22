@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Certificate Verification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Keep your styling if needed -->
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .verify-container {
+            text-align: center;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 12px;
+        }
+
+        .verify-container img {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .verify-container input[type="text"] {
+            padding: 10px 15px;
+            font-size: 16px;
+            width: 250px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .verify-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3f88c5;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .verify-container .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="verify-container">
+    <img src="img/logo.png" alt="Logo">
+    <h2>New page coming soon</h2>
+    <form id="verifyForm" onsubmit="return verifyCertificate()">
+        <input type="text" id="certInput" placeholder="Enter certificate number to verify">
+        <button type="submit">Verify</button>
+    </form>
+    <div class="result" id="resultText"></div>
+</div>
+
+<script>
+    function verifyCertificate() {
+        const input = document.getElementById('certInput').value.trim();
+        const resultText = document.getElementById('resultText');
+
+        if (input === "PL/394/20432B/25") {
+            resultText.style.color = "green";
+            resultText.textContent = "Certificate valid";
+        } else {
+            resultText.style.color = "red";
+            resultText.textContent = "Certificate not valid";
+        }
+        return false; // Prevent form submission
+    }
+</script>
+
+</body>
+</html>
